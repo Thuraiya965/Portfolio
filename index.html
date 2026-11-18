@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="en" class="is-booting">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Thuraiya Al Marhoobi · AI Developer & Software Engineer</title>
+  <meta name="description" content="Thuraiya Al Marhoobi, AI Developer and Software Engineer in Muscat, Oman. Software development, data and digital transformation. First-Class Honours in Computer Science, UWE Bristol." />
+  <meta property="og:title" content="Thuraiya Al Marhoobi · AI Developer & Software Engineer" />
+  <meta property="og:description" content="My journey in software, data and digital transformation: projects, experience and certifications." />
+  <meta property="og:image" content="assets/img/portrait.jpg" />
+  <meta name="theme-color" content="#f6f4ef" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2316182b'/%3E%3Cpath d='M12 10 7 16l5 6M20 10l5 6-5 6' fill='none' stroke='%23f6f4ef' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Reem+Kufi:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script>
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('reduce-motion');
+    // if the 3D scene hasn't started in 5s, show the flat version
+    setTimeout(function () {
+      var r = document.documentElement;
+      if (r.classList.contains('is-booting')) { r.classList.remove('is-booting'); r.classList.add('no-webgl'); }
+    }, 5000);
+  </script>
+  <script type="importmap">
+    { "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.min.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+    } }
+  </script>
+  <script type="module" src="js/app.js"></script>
+  <script type="module" src="js/orbit.js"></script>
+  <script type="module" src="js/route.js"></script>
+</head>
+<body>
+  <a class="skip" href="#projects">Skip to projects</a>
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-gh" viewBox="0 0 16 16"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></symbol>
+  </svg>
+
+  <!-- ===================== NAV ===================== -->
+  <header class="nav" id="nav">
+    <a class="brand" href="#top" aria-label="Back to top">
+      <span class="brand-mark mono">&lt;/&gt;</span>
+      <span class="brand-en">Thuraiya Al Marhoobi</span>
+    </a>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="#projects" data-nav="projects"><span class="g-icon" data-glyph="projects"></span><span>projects</span></a>
+      <a href="#experience" data-nav="experience"><span class="g-icon" data-glyph="experience"></span><span>experience</span></a>
+      <a href="#skills" data-nav="skills"><span class="g-icon" data-glyph="skills"></span><span>skills</span></a>
+      <a href="#education" data-nav="education"><span class="g-icon" data-glyph="education"></span><span>education</span></a>
+      <a href="#offscreen" data-nav="offscreen"><span class="g-icon" data-glyph="offscreen"></span><span>events</span></a>
+      <a href="#contact" data-nav="contact"><span class="g-icon" data-glyph="contact"></span><span>contact</span></a>
+      <a class="nav-gh" href="https://github.com/Thuraiya2almarhoobi" target="_blank" rel="noopener" aria-label="GitHub profile"><svg width="16" height="16"><use href="#i-gh"/></svg><span>GitHub</span></a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <!-- ===================== HERO / ORBIT ===================== -->
+    <section class="hero" id="top" aria-label="Introduction">
+      <canvas id="orbit-canvas" aria-hidden="true"></canvas>
+      <div class="orbit-labels" id="orbit-labels" aria-hidden="true"></div>
+      <div class="orbit-tip mono" id="orbit-tip" aria-hidden="true"></div>
+
+      <div class="hero-copy">
+        <p class="eyebrow">
+          <img class="avatar" src="assets/img/portrait.jpg" alt="" width="34" height="34" />
+          <span><b>AI Developer</b> · Smart Network Trading · Muscat, Oman</span>
+        </p>
+        <h1 class="hero-title">
+          <span class="line"><span>Thuraiya</span></span>
+          <span class="line"><span><em>Al Marhoobi</em></span></span>
+        </h1>
+        <p class="hero-slogan">My journey in software, data &amp; digital transformation.</p>
+        <p class="hero-sub">
+          Computer Science graduate with First-Class Honours from the University of the West of England, with professional
+          experience across the UK and Oman. I design and build AI-powered applications, from RAG pipelines and intelligent
+          agents to full-stack systems, and help organisations replace manual processes with reliable, data-driven software.
+        </p>
+        <div class="hero-cta">
+          <a class="btn btn-solid" href="#projects">View projects <span aria-hidden="true">→</span></a>
+          <a class="btn btn-gh" href="https://github.com/Thuraiya2almarhoobi" target="_blank" rel="noopener"><svg width="18" height="18" aria-hidden="true"><use href="#i-gh"/></svg>GitHub</a>
+          <a class="btn btn-ghost" href="#contact">Contact me</a>
+        </div>
+        <p class="hero-hint">Select a symbol to open a section, or drag to rotate the orbit.</p>
+      </div>
+
+      <!-- accessible legend; also the fallback when 3D is off -->
+      <nav class="legend" id="legend" aria-label="Jump to a section"></nav>
+
+      <details class="tweak mono" id="tweak">
+        <summary><span class="dot"></span>orbit.config</summary>
+        <div class="tweak-body">
+          <label><span>speed</span><input type="range" min="0" max="3" step="0.05" value="1" data-k="speed" /><output>1.00</output></label>
+          <label><span>radius</span><input type="range" min="2.4" max="5" step="0.05" value="3.6" data-k="radius" /><output>3.60</output></label>
+          <label><span>depth</span><input type="range" min="0" max="2" step="0.05" value="1" data-k="depth" /><output>1.00</output></label>
+          <button type="button" data-k="reset">reset()</button>
+        </div>
+      </details>
+
+      <a class="scroll-cue mono" href="#projects" aria-label="Scroll down"><span>scroll</span><i></i></a>
+    </section>
+
+    <!-- ===================== PROJECTS ===================== -->
+    <section class="sec" id="projects" style="--c: var(--coral)">
+      <div class="wrap">
+        <header class="sec-head sec-head-row">
+          <div>
+            <span class="g-icon big reveal" data-glyph="projects"></span>
+            <p class="sec-path mono reveal">~/thuraiya/<b>projects</b></p>
+            <h2 class="reveal">Selected <em>projects</em></h2>
+          </div>
+          <a class="btn btn-gh reveal" href="https://github.com/Thuraiya2almarhoobi" target="_blank" rel="noopener"><svg width="18" height="18" aria-hidden="true"><use href="#i-gh"/></svg>All repositories on GitHub ↗</a>
+        </header>
+      </div>
+
+      <div class="arc reveal" id="arc" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Projects">
+        <div class="arc-stage"><div class="arc-track" id="arc-track"></div></div>
+        <div class="arc-ui mono">
+          <button type="button" class="arc-btn" id="arc-prev" aria-label="Previous project">←</button>
+          <span class="arc-count" id="arc-count" aria-live="polite">01 / 08</span>
+          <button type="button" class="arc-btn" id="arc-next" aria-label="Next project">→</button>
+        </div>
+      </div>
+      <div class="wrap"><ol class="arc-index mono" id="arc-index"></ol></div>
+    </section>
+
+    <!-- ===================== EXPERIENCE ===================== -->
+    <section class="sec" id="experience" style="--c: var(--sand)">
+      <div class="wrap">
+        <header class="sec-head">
+          <span class="g-icon big reveal" data-glyph="experience"></span>
+          <p class="sec-path mono reveal">~/thuraiya/<b>experience</b></p>
+          <h2 class="reveal">Professional <em>experience</em></h2>
+        </header>
+        <ol class="gitlog" id="gitlog"></ol>
+      </div>
+    </section>
+
+    <!-- ===================== SKILLS ===================== -->
+    <section class="sec" id="skills" style="--c: var(--violet)">
+      <div class="wrap">
+        <header class="sec-head">
+          <span class="g-icon big reveal" data-glyph="skills"></span>
+          <p class="sec-path mono reveal">~/thuraiya/<b>skills</b></p>
+          <h2 class="reveal">Technical <em>skills</em></h2>
+          <p class="sec-lede reveal">Skills marked with a number were applied in the projects and roles on this page. Select one to see where.</p>
+        </header>
+        <div class="stack" id="stack"></div>
+        <aside class="proof mono" id="proof" aria-live="polite">
+          <p class="proof-empty">Select a skill with a number to see where it was used.</p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ===================== EDUCATION & CERTIFICATIONS ===================== -->
+    <section class="sec" id="education" style="--c: var(--teal)">
+      <div class="wrap">
+        <header class="sec-head">
+          <span class="g-icon big reveal" data-glyph="education"></span>
+          <p class="sec-path mono reveal">~/thuraiya/<b>education</b></p>
+          <h2 class="reveal">Academic <em>background</em></h2>
+        </header>
+
+        <article class="degree has-photo reveal">
+          <figure class="degree-photo">
+            <button class="ev" data-lb="grad" data-src="assets/img/graduation.jpg" data-cap="Graduation, First-Class Honours · UWE Bristol">
+              <img src="assets/img/graduation.jpg" alt="Thuraiya Al Marhoobi in graduation gown in front of Bristol Cathedral" loading="lazy" />
+            </button>
+            <figcaption class="mono">First-Class Honours · UWE Bristol</figcaption>
+          </figure>
+          <div class="degree-main">
+            <p class="mono edu-when">Sept 2024 – Jun 2026 · Bristol, United Kingdom</p>
+            <h3>BSc (Hons) Computer Science</h3>
+            <p class="edu-org">University of the West of England, Bristol</p>
+            <ul class="badges mono"><li class="b-gold">First-Class Honours</li><li>GPA 4.0</li></ul>
+            <p>A strong academic foundation in artificial intelligence, software development, data analysis and optimisation. Final-year work included SmartSort (AI waste classification), a full integrated marketplace platform, an ML dashboard for critical-care dietitian referrals and a comparative study of AI optimisation algorithms.</p>
+          </div>
+          <ul class="degree-areas mono" aria-label="Focus areas">
+            <li>Artificial Intelligence</li><li>Software Development</li><li>Data Analysis</li><li>Optimisation</li><li>Web Programming</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===================== PROFESSIONAL DEVELOPMENT, CERTIFICATES & RECOGNITION ===================== -->
+    <section class="sec" id="development" style="--c: var(--teal)">
+      <div class="wrap">
+        <header class="sec-head">
+          <span class="g-icon big reveal" data-glyph="development"></span>
+          <p class="sec-path mono reveal">~/thuraiya/<b>development</b></p>
+          <h2 class="reveal">Certificates &amp; <em>recognition</em></h2>
+          <p class="sec-lede reveal">Programmes, certificates and recognition that reflect growth beyond technical work, from academic achievement to AI-focused learning, entrepreneurship, leadership and collaboration.</p>
+        </header>
+
+        <div class="features">
+          <article class="feature reveal" style="--c: var(--sand)">
+            <figure class="feature-fig feature-fig-doc feature-fig-cert">
+              <button class="ev" data-lb="recog" data-src="assets/img/embassy-certificate.jpg" data-cap="Certificate of Appreciation · Embassy of the Sultanate of Oman in the United Kingdom · 15 July 2026">
+                <img src="assets/img/embassy-certificate.jpg" alt="Certificate of Appreciation from the Embassy of the Sultanate of Oman in the United Kingdom to Thuraiya Shakir Sultan Al Marhoobi, for academic excellence and for her efforts as president of the student society, dated 15 July 2026" loading="lazy" />
+              </button>
+              <figcaption>Certificate of Appreciation · Embassy of Oman, London · July 2026</figcaption>
+            </figure>
+            <div class="feature-body">
+              <p class="sec-kicker mono">2026 / London, United Kingdom</p>
+              <h3>Certificate of Recognition</h3>
+              <p class="feature-lead">Outstanding Omani Graduates.</p>
+              <p>Recognised at the Class of 2026 Leaver's Gathering &amp; Alumni Network Commencement for achieving First-Class Honours in Computer Science and for serving as President of the Omani Society in Bristol.</p>
+              <ul class="tools mono"><li>First-Class Honours</li><li>Student leadership</li></ul>
+              <p class="feature-note">Embassy of the Sultanate of Oman, Cultural Division, with OQ and the British Omani Society.</p>
+            </div>
+          </article>
+
+          <article class="feature reveal" style="--c: var(--teal)">
+            <figure class="feature-fig">
+              <button class="ev" data-lb="dev" data-src="assets/img/outward-cert.jpg" data-cap="Outward Bound Oman · AI &amp; Digitalisation Programme">
+                <img src="assets/img/outward-cert.jpg" alt="Thuraiya Al Marhoobi holding her Outward Bound AI and Digitalisation Programme certificate in Jabal Al Akhdar" loading="lazy" />
+              </button>
+              <figcaption>Outward Bound Oman · AI &amp; Digitalisation Programme</figcaption>
+            </figure>
+            <div class="feature-body">
+              <p class="sec-kicker mono">Jabal Al Akhdar / Oman</p>
+              <h3>Outward Bound AI &amp; Digitalisation Programme</h3>
+              <p class="feature-lead">Learning in a different environment.</p>
+              <p>This programme combined workshops around AI and digitalisation with hiking, camping and outdoor challenges in Jabal Al Akhdar. It was a valuable experience that strengthened my leadership, teamwork, communication and problem-solving skills in a very different setting from a classroom or office.</p>
+              <ul class="tools mono"><li>AI &amp; digitalisation</li><li>Leadership</li><li>Teamwork</li><li>Problem solving</li></ul>
+              <p class="feature-note">Supported by Petroleum Development Oman (PDO).</p>
+            </div>
+          </article>
+
+          <article class="feature reveal" style="--c: var(--coral)">
+            <figure class="feature-fig feature-fig-doc">
+              <button class="ev" data-lb="injaz" data-src="assets/img/injaz-cert.jpg" data-cap="Certificate of Participation · Injaz Oman · 2026/2027">
+                <img src="assets/img/injaz-cert.jpg" alt="Injaz Oman participation certificate for Thuraiya Shakir Sultan Al Marhoobi, The Company Programme and Competition 2026/2027, school category" loading="lazy" />
+              </button>
+              <figcaption>Certificate of Participation · Injaz Oman · 2026/2027</figcaption>
+            </figure>
+            <div class="feature-body">
+              <p class="sec-kicker mono">Participation certificate / 2026–2027</p>
+              <h3>Injaz Oman: The Company Programme</h3>
+              <p class="feature-lead">The Company Programme &amp; Competition.</p>
+              <p>Participated in the 2026/2027 Company Programme and Competition, school category, organised by Injaz Oman. The programme combines practical activities and workshops in entrepreneurship, artificial intelligence, financial literacy and innovation.</p>
+              <p>The experience developed skills in event organisation, effective communication, teamwork, time management, responsibility, coordination and problem solving.</p>
+              <ul class="tools mono"><li>Entrepreneurship</li><li>Innovation</li><li>Teamwork</li></ul>
+            </div>
+          </article>
+
+          <div class="features-pair">
+            <article class="feature feature-compact reveal" style="--c: var(--sand)">
+              <figure class="feature-fig feature-fig-seal" aria-hidden="true">
+                <span class="seal-big">84%</span>
+                <figcaption>Overall result</figcaption>
+              </figure>
+              <div class="feature-body">
+                <p class="sec-kicker mono">2024 / Bristol, United Kingdom</p>
+                <h3>Certificate of Excellence</h3>
+                <p>Awarded for achieving 84% overall in the International Year One in Computing.</p>
+                <p class="feature-note">UWE Bristol International College</p>
+              </div>
+            </article>
+
+            <article class="feature feature-compact reveal" style="--c: var(--sky)">
+              <figure class="feature-fig feature-fig-seal is-progress" aria-hidden="true">
+                <span class="seal-big">HCIA</span>
+                <figcaption>In progress</figcaption>
+              </figure>
+              <div class="feature-body">
+                <p class="sec-kicker mono">In progress / Candidate</p>
+                <h3>HCIA-Cloud Service</h3>
+                <p>Preparing for Huawei's cloud services certification, complementing hands-on work with Microsoft Azure and Docker.</p>
+                <p class="feature-note">Huawei</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== BEYOND DEVELOPMENT: LEADERSHIP ===================== -->
+    <section class="sec" id="leadership" style="--c: var(--violet)">
+      <div class="wrap">
+        <header class="sec-head">
+          <span class="g-icon big reveal" data-glyph="leadership"></span>
+          <p class="sec-path mono reveal">~/thuraiya/<b>leadership</b></p>
+          <h2 class="reveal">Leadership &amp; <em>involvement</em></h2>
+          <p class="sec-lede reveal">Beyond development: student leadership, cultural representation and community work.</p>
+        </header>
+
+        <article class="lead-card reveal">
+          <figure class="lead-fig">
+            <button class="ev" data-lb="lead" data-src="assets/img/society-ambassador.jpg" data-cap="Omani cultural celebrations in the UK with His Excellency Badr Mohammed Badr Almantheri, Ambassador of the Sultanate of Oman to the United Kingdom.">
+              <img src="assets/img/society-ambassador.jpg" alt="Omani student society cultural event with His Excellency Badr Mohammed Badr Almantheri, Oman's Ambassador to the United Kingdom" loading="lazy" />
+            </button>
+            <figcaption>Omani cultural celebrations in the UK with His Excellency Badr Mohammed Badr Almantheri, Ambassador of the Sultanate of Oman to the United Kingdom.</figcaption>
+          </figure>
+          <div class="lead-body">
+            <p class="sec-kicker mono">Student leadership and cultural representation</p>
+            <h3>President, Omani Students Association in Bristol</h3>
+            <p>As president, I led the society's event planning and student engagement activities. This included organising Omani National Day celebrations, coordinating with student committees and external partners, and creating opportunities for Omani students to share our culture and build a community while studying in the UK.</p>
+            <p>Representing students at cultural occasions and engaging with embassy representatives strengthened my confidence in public speaking, planning and building relationships beyond the university.</p>
+          </div>
+        </article>
+
+        <article class="lead-mini reveal">
+          <h3>Community engagement &amp; mentoring</h3>
+          <p>Contributed to student activities, mentoring and knowledge sharing, building skills in public speaking, coordination, collaboration and supporting others.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===================== EVENTS ===================== -->
+    <section class="sec" id="offscreen" style="--c: var(--sky)">
+      <div class="wrap">
+        <header class="sec-head">
+          <span class="g-icon big reveal" data-glyph="offscreen"></span>
+          <p class="sec-path mono reveal">~/thuraiya/<b>events</b></p>
+          <h2 class="reveal">Events &amp; <em>community</em></h2>
+          <p class="sec-lede reveal">When I'm not coding, I'm probably at an event.</p>
+        </header>
+
+        <h3 class="sub-h sub-h-first reveal"><span class="mono">conferences.forEach(attend)</span>I collect conference lanyards.</h3>
+        <ul class="lanyards" id="lanyards">
+          <li class="badge reveal" style="--i:0; --r:-3deg">
+            <span class="strap" aria-hidden="true"></span>
+            <button class="badge-card ev" data-lb="conf" data-src="assets/img/comex.jpg" data-cap="With the OITS team at COMEX Global Technology Show 2025, Muscat" data-more="assets/img/oits-cert.jpg|Certificate of appreciation at the OITS stand">
+              <img src="assets/img/comex.jpg" alt="OITS team at the COMEX 2025 stand" loading="lazy" />
+              <span class="badge-txt"><span class="mono">2025 · Muscat</span><b>COMEX Global Technology Show</b><span>Represented OITS and discussed partnership opportunities with training institutes.</span></span>
+            </button>
+          </li>
+          <li class="badge reveal" style="--i:1; --r:2deg">
+            <span class="strap" aria-hidden="true"></span>
+            <button class="badge-card ev" data-lb="conf" data-src="assets/img/summit-1.jpg" data-cap="Digital Leadership Transformation Summit, Knowledge Club Oman" data-more="assets/img/summit-2.jpg|Team exercise at the Digital Leadership Transformation Summit">
+              <img src="assets/img/summit-1.jpg" alt="At the Digital Leadership Transformation Summit" loading="lazy" />
+              <span class="badge-txt"><span class="mono">2025 · Muscat</span><b>Digital Leadership Transformation Summit</b><span>Key takeaway: digital transformation starts with people, not technology.</span></span>
+            </button>
+          </li>
+          <li class="badge reveal" style="--i:2; --r:-1.5deg">
+            <span class="strap" aria-hidden="true"></span>
+            <button class="badge-card ev" data-lb="conf" data-src="assets/img/hackathon.jpg" data-cap="Future Skills Hackathon 2026, UWE Bristol and Future Space">
+              <img src="assets/img/hackathon.jpg" alt="Group photo at the Future Skills Hackathon" loading="lazy" />
+              <span class="badge-txt"><span class="mono">2026 · Bristol</span><b>Future Skills Hackathon</b><span>30+ students and five start-ups tackling real AI and innovation challenges.</span></span>
+            </button>
+          </li>
+          <li class="badge reveal" style="--i:3; --r:3deg">
+            <span class="strap" aria-hidden="true"></span>
+            <button class="badge-card ev" data-lb="conf" data-src="assets/img/perceptual.jpg" data-cap="Future Space Bristol 10th anniversary, with Perceptual Robotics">
+              <img src="assets/img/perceptual.jpg" alt="Perceptual Robotics banner at Future Space" loading="lazy" />
+              <span class="badge-txt"><span class="mono">2026 · Bristol</span><b>Future Space 10th Anniversary</b><span>Attended with the Perceptual Robotics team, celebrating a decade of Bristol innovation.</span></span>
+            </button>
+          </li>
+          <li class="badge reveal" style="--i:4; --r:-2deg">
+            <span class="strap" aria-hidden="true"></span>
+            <button class="badge-card ev" data-lb="conf" data-src="assets/img/embassy-screen.jpg" data-cap="Class of 2026 Leaver's Gathering, Embassy of Oman Cultural Division, London">
+              <img src="assets/img/embassy-screen.jpg" alt="Embassy gathering screen" loading="lazy" />
+              <span class="badge-txt"><span class="mono">2026 · London</span><b>Omani Graduates Gathering</b><span>Recognised for First-Class Honours and for leading the Omani Society in Bristol.</span></span>
+            </button>
+          </li>
+        </ul>
+
+        <h3 class="sub-h reveal"><span class="mono">academic travel</span>Academic visits</h3>
+        <div class="trips">
+          <!-- MALAYSIA: replace the paragraph below with your own description -->
+          <article class="trip reveal tilt" id="malaysia">
+            <button class="trip-img ev" data-lb="trips" data-src="assets/img/malaysia-vtf.jpg" data-cap="Site visit to Virtualtech Frontier, Kuala Lumpur">
+              <img src="assets/img/malaysia-vtf.jpg" alt="Group photo with UWE students and the Virtualtech Frontier team in Kuala Lumpur" loading="lazy" />
+            </button>
+            <div class="trip-body">
+              <p class="mono trip-meta"><span>Kuala Lumpur, Malaysia</span><span>8 days</span></p>
+              <h3>Academic visit to Taylor's University</h3>
+              <p class="trip-desc">Selected as one of ten UWE Computer Science students, together with my Medical Dashboard project team, for an eight-day academic visit. The programme included workshops in artificial intelligence and machine learning, an introduction to robotics development, student innovation projects such as HireDash, and a site visit to Virtualtech Frontier to explore holographic and immersive technologies.</p>
+              <ul class="tools mono"><li>AI/ML workshops</li><li>Robotics</li><li>Immersive technology</li></ul>
+            </div>
+          </article>
+        </div>
+
+        <h3 class="sub-h reveal"><span class="mono">community</span>Talks, workshops and community</h3>
+        <div class="talks">
+          <article class="talk reveal" style="--i:0">
+            <p class="mono talk-when">Nov 2026 · UWE Bristol Business School</p>
+            <h4>AI for Marketing &amp; Business Intelligence</h4>
+            <p>Co-delivered a workshop with Lucía Roca Fernández-Vizarra (Perceptual Robotics) in which entrepreneurship students applied my AI agents to their own business ideas.</p>
+          </article>
+          <article class="talk reveal" style="--i:1">
+            <button class="talk-img ev" data-lb="talks" data-src="assets/img/oits-talk.jpg" data-cap="OITS session, 4 January 2025"><img src="assets/img/oits-talk.jpg" alt="Poster for the OITS session" loading="lazy" /></button>
+            <p class="mono talk-when">4 Jan 2025 · Youth Centre, Muscat Grand Mall</p>
+            <h4>From High School to the Future</h4>
+            <p>Speaker at an OITS session on choosing a technology specialisation, academic success and the future job market.</p>
+          </article>
+          <article class="talk reveal" style="--i:2">
+            <button class="talk-img ev" data-lb="talks" data-src="assets/img/oits-feature.jpg" data-cap="OITS feature for Omani Women's Day"><img src="assets/img/oits-feature.jpg" alt="OITS Omani Women's Day feature" loading="lazy" /></button>
+            <p class="mono talk-when">Omani Women's Day · OITS</p>
+            <h4>Featured by OITS</h4>
+            <p>Featured as a scholarship student in Computer Science and AI, a mentor in the Bawsala programme and an active presenter.</p>
+          </article>
+          <article class="talk reveal" style="--i:3">
+            <button class="talk-img ev" data-lb="talks" data-src="assets/img/oits-camp.jpg" data-cap="OITS two-day tech camp"><img src="assets/img/oits-camp.jpg" alt="Group photo at the OITS tech camp" loading="lazy" /></button>
+            <p class="mono talk-when">Summer · OITS tech camp</p>
+            <h4>Two-day Technology Camp</h4>
+            <p>Co-organised the camp under Laila Al Hadhrami and presented the society's mission to participants.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CONTACT ===================== -->
+    <section class="sec contact" id="contact" style="--c: var(--pink)">
+      <div class="wrap">
+        <header class="sec-head">
+          <span class="g-icon big reveal" data-glyph="contact"></span>
+          <p class="sec-path mono reveal">~/thuraiya/<b>contact</b></p>
+          <h2 class="reveal">Let's <em>work together</em></h2>
+          <p class="sec-lede reveal">Open to opportunities in AI engineering, machine learning, full-stack and backend development.</p>
+        </header>
+        <div class="contact-grid">
+          <button class="contact-big reveal" id="copy-email" type="button">
+            <span class="mono">email · click to copy</span>
+            <b id="email-text">thurayashakir1@gmail.com</b>
+          </button>
+          <a class="contact-card reveal" href="tel:+96891315181" style="--i:1"><span class="mono">phone</span><b>+968 9131 5181</b></a>
+          <a class="contact-card reveal" href="https://www.linkedin.com/in/thuraiya-al-marhoobi-02302a2b2/" target="_blank" rel="noopener" style="--i:2"><span class="mono">linkedin</span><b>Thuraiya Al Marhoobi ↗</b></a>
+          <a class="contact-card reveal" href="https://github.com/Thuraiya2almarhoobi" target="_blank" rel="noopener" style="--i:3"><span class="mono">github</span><b>Thuraiya2almarhoobi ↗</b></a>
+          <div class="contact-card reveal" style="--i:4"><span class="mono">location</span><b>Muscat, Oman <small>· GMT+4</small></b></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot mono">
+    <p>Designed and developed by Thuraiya Al Marhoobi · HTML, CSS &amp; three.js</p>
+    <p>© 2026 · <a href="#top">back to top ↑</a></p>
+  </footer>
+
+  <!-- project details -->
+  <dialog class="case" id="case" aria-labelledby="case-title">
+    <div class="case-inner" id="case-inner"></div>
+  </dialog>
+
+  <!-- lightbox -->
+  <dialog class="lb" id="lb" aria-label="Image viewer">
+    <button class="lb-close mono" type="button" data-close>close ✕</button>
+    <button class="lb-nav lb-prev" type="button" aria-label="Previous image">←</button>
+    <figure><img id="lb-img" alt="" /><figcaption id="lb-cap" class="mono"></figcaption></figure>
+    <button class="lb-nav lb-next" type="button" aria-label="Next image">→</button>
+  </dialog>
+
+  <div class="toast mono" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
