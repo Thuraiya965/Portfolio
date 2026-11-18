@@ -16,7 +16,7 @@ const brace = (s) => ({
 
 export const GLYPHS = [
   {
-    id: 'projects', name: 'projects', label: '</>', color: '#e5603a',
+    id: 'projects', name: 'projects', label: '</>', color: '#e5483a',
     strokes: [
       { pts: [[-0.22, 0.34], [-0.56, 0], [-0.22, -0.34]] },
       { pts: [[0.13, 0.52], [-0.13, -0.52]] },
@@ -24,32 +24,32 @@ export const GLYPHS = [
     ],
   },
   {
-    id: 'experience', name: 'experience', label: '{ }', color: '#d4900f',
+    id: 'experience', name: 'experience', label: '{ }', color: '#d0701c',
     strokes: [brace(1), brace(-1)],
   },
   {
-    id: 'skills', name: 'skills', label: 'λ', color: '#6b5ce7',
+    id: 'skills', name: 'skills', label: 'λ', color: '#5b3fd8',
     strokes: [
       { pts: [[-0.38, 0.58], [-0.16, 0.58], [0.38, -0.58]] },
       { pts: [[0.11, 0.0], [-0.34, -0.58]] },
     ],
   },
   {
-    id: 'education', name: 'education', label: '++', color: '#0f9d8f',
+    id: 'education', name: 'education', label: '++', color: '#2d6ad6',
     strokes: [
       { pts: [[-0.58, 0], [-0.12, 0]] }, { pts: [[-0.35, 0.23], [-0.35, -0.23]] },
       { pts: [[0.12, 0], [0.58, 0]] }, { pts: [[0.35, 0.23], [0.35, -0.23]] },
     ],
   },
   {
-    id: 'offscreen', name: 'events', label: '~/', color: '#2f80d8',
+    id: 'offscreen', name: 'events', label: '~/', color: '#a04ad0',
     strokes: [
       { smooth: true, pts: [[-0.62, -0.04], [-0.48, 0.12], [-0.32, 0.06], [-0.18, -0.08], [-0.04, 0.06]] },
       { pts: [[0.12, -0.52], [0.52, 0.52]] },
     ],
   },
   {
-    id: 'contact', name: 'contact', label: '@', color: '#d6457f',
+    id: 'contact', name: 'contact', label: '@', color: '#d93f78',
     strokes: [
       { smooth: true, closed: true, pts: arc(-0.03, 0, 0.17, 0, Math.PI * 2, 10).slice(0, 10) },
       {
@@ -64,7 +64,7 @@ export const GLYPHS = [
 // heading-only glyphs (not part of the orbit)
 export const EXTRA_GLYPHS = [
   {
-    id: 'development', name: 'development', label: '*', color: '#0f9d8f',
+    id: 'development', name: 'development', label: '*', color: '#2d6ad6',
     strokes: [
       { pts: [[0, 0.56], [0, -0.56]] },
       { pts: [[-0.48, 0.28], [0.48, -0.28]] },
@@ -72,7 +72,7 @@ export const EXTRA_GLYPHS = [
     ],
   },
   {
-    id: 'leadership', name: 'leadership', label: '^', color: '#6b5ce7',
+    id: 'leadership', name: 'leadership', label: '^', color: '#5b3fd8',
     strokes: [
       { pts: [[-0.5, -0.02], [0, 0.48], [0.5, -0.02]] },
       { pts: [[-0.5, -0.5], [0, 0], [0.5, -0.5]] },

@@ -6,7 +6,7 @@ const $$ = (s, r = document) => [...r.querySelectorAll(s)];
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const pad = (n) => String(n).padStart(2, '0');
 const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-const PALETTE = ['#e5603a', '#d4900f', '#6b5ce7', '#0f9d8f', '#2f80d8', '#d6457f'];
+const PALETTE = ['#e5483a', '#d0701c', '#5b3fd8', '#2d6ad6', '#a04ad0', '#d93f78'];
 const GH = '<svg width="15" height="15" aria-hidden="true"><use href="#i-gh"/></svg>';
 
 function goSection(id) {

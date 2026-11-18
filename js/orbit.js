@@ -112,6 +112,8 @@ function init() {
   }));
   nebula.scale.setScalar(4.2);
   center.add(nebula);
+  // the technology ball (js/orb.js) now sits at the centre of the orbit
+  center.visible = false;
 
   // orbit path line
   const PATH_N = 160;
@@ -338,6 +340,11 @@ function init() {
 
     // centre cluster
     center.position.set(layout.cx, layout.cy, 0);
+    // tell the technology ball where the orbit centre is (hero pixels)
+    {
+      const ppu = H / (2 * Math.tan(THREE.MathUtils.degToRad(camera.fov / 2)) * 13);
+      window.__heroOrbit = { x: W / 2 + layout.cx * ppu, y: H / 2 - layout.cy * ppu, r: P.radius * layout.r * ppu };
+    }
     const cs = layout.r;
     sisterSprites.forEach((s, k) => {
       const intro = reduce ? 1 : easeOutBack(clamp01((since - 0.1 - k * 0.07) / 0.7));
