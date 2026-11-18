@@ -20,12 +20,15 @@ if (main) {
   const svg = mk('svg', { class: 'route', 'aria-hidden': 'true', focusable: 'false' });
   const defs = mk('defs', {}, svg);
   const grad = mk('linearGradient', { id: 'route-grad', gradientUnits: 'userSpaceOnUse', x1: 0, y1: 0, x2: 0, y2: 1 }, defs);
-  const road = mk('path', { class: 'route-road' }, svg);
-  const lane = mk('path', { class: 'route-lane' }, svg);
-  const glow = mk('path', { class: 'route-glow' }, svg);
-  const ink = mk('path', { class: 'route-ink' }, svg);
-  const stopsG = mk('g', { class: 'route-stops' }, svg);
-  const head = mk('g', { class: 'route-head' }, svg);
+  // the road starts hidden under the hero and comes out from its bottom edge
+  const clip = mk('rect', { x: 0, y: 0, width: 1, height: 1 }, mk('clipPath', { id: 'route-clip', clipPathUnits: 'userSpaceOnUse' }, defs));
+  const layer = mk('g', { 'clip-path': 'url(#route-clip)' }, svg);
+  const road = mk('path', { class: 'route-road' }, layer);
+  const lane = mk('path', { class: 'route-lane' }, layer);
+  const glow = mk('path', { class: 'route-glow' }, layer);
+  const ink = mk('path', { class: 'route-ink' }, layer);
+  const stopsG = mk('g', { class: 'route-stops' }, layer);
+  const head = mk('g', { class: 'route-head' }, layer);
   mk('circle', { class: 'route-halo', r: 13 }, head);
   mk('circle', { class: 'route-core', r: 6 }, head);
   main.prepend(svg);
@@ -88,7 +91,8 @@ if (main) {
     // waypoints: start under the hero, then stop -> swing to the far lane -> next stop ...
     const hero = main.querySelector('.hero');
     const heroBottom = hero ? pos(hero).y + hero.offsetHeight : stops[0].y - 200;
-    const pts = [[rx, Math.min(heroBottom - 24, stops[0].y - 160)]];
+    clip.setAttribute('y', heroBottom); clip.setAttribute('width', W); clip.setAttribute('height', Math.max(0, H - heroBottom));
+    const pts = [[rx, heroBottom - 320]];
     stops.forEach((s, i) => {
       pts.push([s.x, s.y], [s.x, s.below]);
       const next = stops[i + 1];
@@ -100,7 +104,8 @@ if (main) {
 
     let d = `M${pts[0][0].toFixed(1)} ${pts[0][1].toFixed(1)}`;
     for (let i = 1; i < pts.length; i++) {
-      const [ax, ay] = pts[i - 1], [bx, by] = pts[i], k = (by - ay) * 0.5;
+      // long, gentle handles so every bend is a wide, smooth turn
+      const [ax, ay] = pts[i - 1], [bx, by] = pts[i], k = (by - ay) * (ax === bx ? 0.5 : 0.74);
       d += `C${ax.toFixed(1)} ${(ay + k).toFixed(1)} ${bx.toFixed(1)} ${(by - k).toFixed(1)} ${bx.toFixed(1)} ${by.toFixed(1)}`;
     }
     for (const p of [road, lane, glow, ink]) p.setAttribute('d', d);

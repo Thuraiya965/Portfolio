@@ -308,6 +308,17 @@ html.flow .sec > *, html.flow .hero-copy {
 main { position: relative; }
 .sec > * { position: relative; z-index: 2; }
 .route { position: absolute; left: 0; top: 0; z-index: 1; pointer-events: none; overflow: visible; }
+/* text that sits on the section background gets a halo in the background
+   colour (like labels on a map), so the road visibly passes behind it */
+.sec { --halo: var(--bg); }
+.sec:nth-of-type(even) { --halo: var(--bg-2); }
+.sec-path, .sec-head h2, .sec-lede, .sub-h {
+  text-shadow: 0 0 1px var(--halo), 0 0 2px var(--halo), 0 0 3px var(--halo), 0 0 5px var(--halo), 0 0 8px var(--halo), 0 0 12px var(--halo), 0 0 18px var(--halo);
+}
+/* project names below the carousel sit on solid chips, so the road runs behind them */
+.arc-index button:not(.on) { background: var(--halo); box-shadow: 0 0 0 1px var(--line); }
+.arc-index button:not(.on):hover { background: var(--surface); }
+.arc-count { background: var(--halo); border-radius: 999px; padding: 6px 10px; }
 .route path { fill: none; stroke-linecap: round; stroke-linejoin: round; }
 .route-road { stroke: rgba(22, 24, 43, .045); stroke-width: 26; }
 .route-lane { stroke: rgba(22, 24, 43, .22); stroke-width: 1.6; stroke-dasharray: 3 10; }
