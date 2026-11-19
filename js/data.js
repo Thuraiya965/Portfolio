@@ -35,6 +35,24 @@ export const PROJECTS = [
       ['35', 'training epochs (≈2.5 h on GPU)'],
     ],
     tools: ['Python', 'PyTorch', 'YOLO', 'CNN', 'FastAPI', 'REST APIs', 'React', 'Vite'],
+    features: [
+      {
+        src: IMG + 'smartsort-detection.jpg', title: 'Live detection with a disposal decision',
+        text: 'Every detected item gets a bounding box, a confidence score and a waste stream. The Bristol rules engine then returns the material, whether it is recyclable, step-by-step disposal instructions and the reason behind the decision.',
+      },
+      {
+        src: IMG + 'smartsort-guidance.jpg', title: 'Rules-based guidance for difficult items',
+        text: 'Items that look recyclable but are not, such as disposable plastic cutlery, are routed to general waste with an explanation. Session counters track items detected, recyclable share, items sent for manual check and average confidence.',
+      },
+      {
+        src: IMG + 'smartsort-model-quality.jpg', title: 'Model quality dashboard',
+        text: 'A built-in view of model performance: 88.49% overall validation accuracy on 3,607 samples, per-class accuracy (for example clothes 97%, paper 90%, plastic 76%), the ensemble runtime configuration and the active Bristol City Council policy with 14 rules.',
+      },
+      {
+        src: IMG + 'smartsort-mobile.jpg', title: 'Phone-camera mode',
+        text: 'The same app runs on a phone over the local network, using the live camera. Detections are colour-coded by confidence band (high 65% and above, medium 40-65%, low under 40%) so uncertain results are easy to spot.',
+      },
+    ],
     evidence: [{ src: IMG + 'smartsort-pipeline.png', cap: 'SmartSort dataset construction and training pipeline' }],
     repo: 'https://github.com/Thuraiya2almarhoobi/SmartSort',
   },
@@ -95,24 +113,50 @@ export const PROJECTS = [
       ['1', 'command to run the full stack with Docker'],
     ],
     tools: ['Django REST', 'React', 'TypeScript', 'Vite', 'PostgreSQL', 'Docker', 'Stripe', 'JWT', 'REST APIs', 'Gemini API', 'Tailwind CSS'],
+    features: [
+      {
+        src: IMG + 'desd-browse.jpg', title: 'Public browse before signing in',
+        text: 'Visitors can explore products and producers in a read-only marketplace with category and sort filters. Ordering is kept behind authenticated customer, community and restaurant accounts.',
+      },
+      {
+        src: IMG + 'desd-product.jpg', title: 'Product detail with full context',
+        text: 'Each product shows price per unit, order status, estimated fulfilment time and stock, alongside seasonality, organic certification, food miles, allergen information, storage advice, recipe suggestions and the farm location.',
+      },
+      {
+        src: IMG + 'desd-marketplace.jpg', title: 'Signed-in marketplace and surplus deals',
+        text: 'Buyers filter by category, organic certification, price, seasonality, allergens and stock, save favourite producers, and add to cart or buy now. A separate Surplus Deals tab highlights discounted surplus produce.',
+      },
+      {
+        src: IMG + 'desd-producer-orders.jpg', title: 'Producer sales orders and recurring demand',
+        text: 'Producers see live order counts by status and can filter by status, customer and date. Upcoming recurring restaurant templates give advance notice of demand, so harvest, kitchen prep and restocking can be planned before the orders arrive.',
+      },
+      {
+        src: IMG + 'desd-order-detail.jpg', title: 'Order detail for fulfilment',
+        text: 'Each order lists its items with unit prices and allergens, the delivery date and address, food miles, preparation notes with lead time, and the subtotal with the 5% platform commission.',
+      },
+      {
+        src: IMG + 'desd-payouts.jpg', title: 'Weekly payouts and exports',
+        text: 'Producers receive weekly settlement statements showing orders, total sales, the 5% commission and their earnings, with payout status (paid, pending bank transfer, processing) and CSV, PDF and Excel exports.',
+      },
+    ],
     evidence: [],
     repo: 'https://github.com/Thuraiya2almarhoobi/DESDProject',
   },
   {
     id: 'ccu-dashboard',
-    title: 'Medical Dashboard',
-    hook: 'ML referral prediction for critical-care dietitians',
-    cat: 'Healthcare · Machine learning',
+    title: 'CCU Referral AI',
+    hook: 'AI model predicting dietitian referrals in critical care',
+    cat: 'AI · Healthcare machine learning',
     when: '2024 – 2025 · UWE Bristol (team project)',
     role: 'Team: Mohammad Faraj Raeez Jaldin, Madjid Lachichi · Supervisor: Elias Pimenidis',
-    fig: { n: 'RF', l: 'RandomForest referral prediction model' },
+    fig: { n: 'AI', l: 'RandomForest model predicting dietitian referrals' },
     summary:
-      'A clinical decision-support dashboard. Dietitians upload patient CSV files and receive referral-risk predictions, then review the data through interactive charts and exportable reports.',
+      'An AI model that predicts which critical care unit (CCU) patients should be referred to a dietitian. The model is the core of the project; a dashboard delivers its predictions, so dietitians can upload patient CSV files, see predicted referrals and review the data through charts and reports.',
     problem:
       'Dietitians in a critical care unit must prioritise referrals across many patients. They needed a fast, data-driven way to identify who should be seen first using measurements already recorded.',
     built: [
-      'Two Flask services: a data API for CSV ingestion and an ML API for predictions.',
-      'RandomForest model trained on feed volume, oxygen flow rate, respiratory rate and BMI.',
+      'RandomForest classification model trained on feed volume, oxygen flow rate, respiratory rate and BMI to predict whether a patient needs a dietitian referral.',
+      'ML API (Flask) serving the model predictions, alongside a data API for CSV ingestion.',
       'Next.js front end to search, filter and paginate referrals, with charts of patient metrics.',
       'Report export to image and PDF, and an Electron wrapper for desktop deployment.',
       'The project led to the team being selected for the UWE academic visit to Malaysia.',
@@ -123,6 +167,12 @@ export const PROJECTS = [
       ['2', 'deployment targets: web and desktop'],
     ],
     tools: ['Python', 'scikit-learn', 'pandas', 'Flask', 'REST APIs', 'Next.js', 'Electron'],
+    features: [
+      {
+        src: IMG + 'ccu-screens.jpg', title: 'From model prediction to dietitian workflow',
+        text: 'The app wraps the model in five screens: Home; Patient Referrals to Dietitian, listing the predicted referral for each patient; Analyse Patients Data, to search and filter by referral status; Reports & Data Visualisation, with charts of referrals and patient measurements; and Upload CSV, to score new patient data.',
+      },
+    ],
     evidence: [],
     repo: 'https://github.com/Thuraiya2almarhoobi/Medical-Dashboard',
   },

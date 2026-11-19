@@ -227,6 +227,11 @@ function openCase(id) {
       <section><h3>The challenge</h3><p>${esc(p.problem)}</p></section>
       <section><h3>What I built</h3><ol class="case-built">${p.built.map((b) => `<li>${esc(b)}</li>`).join('')}</ol></section>
       ${p.numbers.length ? `<section><h3>Key figures</h3><div class="case-nums">${p.numbers.map(([n, l]) => `<div><b>${esc(n)}</b><span>${esc(l)}</span></div>`).join('')}</div></section>` : ''}
+      ${p.features?.length ? `<section><h3>Key features</h3><div class="case-feats">${p.features.map((f) => `
+        <article class="case-feat">
+          <button class="ev" type="button" data-lb="feat-${p.id}" data-src="${f.src}" data-cap="${esc(f.title + ' · ' + f.text)}"><img src="${f.src}" alt="${esc(p.title + ': ' + f.title)}" loading="lazy"></button>
+          <div><h4>${esc(f.title)}</h4><p>${esc(f.text)}</p></div>
+        </article>`).join('')}</div></section>` : ''}
       <section><h3>Tools &amp; technologies</h3>${toolChips(p.tools)}</section>
       ${p.evidence.length ? `<section><h3>Evidence</h3><div class="case-ev">${evThumbs(p.evidence, 'case-' + p.id)}</div></section>` : ''}
     </div>`;

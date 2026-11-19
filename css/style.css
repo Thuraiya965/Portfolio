@@ -427,6 +427,21 @@ dialog { color: var(--ink); }
 .case-nums span { font-size: 13px; color: var(--ink-2); line-height: 1.4; display: block; }
 .case-ev { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 10px; }
 
+/* feature tour inside a project case study: screenshot + what it shows */
+.case-feats { display: grid; gap: 14px; }
+.case-feat { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 20px; align-items: center; padding: 12px; border-radius: 16px; background: var(--bg); border: 1px solid var(--line); }
+.case-feat:nth-child(even) { grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); }
+.case-feat:nth-child(even) .ev { order: 2; }
+.case-feat .ev { aspect-ratio: 16 / 10; background: #fff; border: 1px solid var(--line); }
+.case-feat .ev img { object-fit: contain; }
+.case-feat h4 { margin: 0 0 6px; font: 600 16px/1.3 var(--f-body); color: var(--ink); }
+.case-feat h4::before { content: ''; display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--pc); margin-right: 8px; vertical-align: 2px; }
+.case-feat p { font-size: 14.5px; line-height: 1.55; }
+@media (max-width: 640px) {
+  .case-feat, .case-feat:nth-child(even) { grid-template-columns: 1fr; }
+  .case-feat:nth-child(even) .ev { order: 0; }
+}
+
 /* evidence thumbnails (shared) */
 .ev { padding: 0; border: 0; background: none; cursor: zoom-in; display: block; border-radius: 12px; overflow: hidden; position: relative; }
 .ev img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s var(--soft); }
