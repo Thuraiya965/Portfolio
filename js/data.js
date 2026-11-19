@@ -262,6 +262,12 @@ export const EXPERIENCE = [
     when: 'Sep 2026 – Present', role: 'AI Developer', org: 'Smart Network Trading',
     text: 'Developing and maintaining AI-powered solutions, including LLM-based applications, retrieval-augmented generation (RAG) pipelines and intelligent automation systems.',
     tools: ['Python', 'LLMs', 'RAG', 'Microsoft Azure', 'Docker', 'Linux'],
+    // shown in the "current role" panel opened from the hero chip
+    focus: [
+      { n: 'LLM', title: 'LLM-based applications', text: 'Building applications on large language models that answer questions, draft content and support day-to-day work.' },
+      { n: 'RAG', title: 'Retrieval-augmented generation', text: 'Designing RAG pipelines that ground model answers in the organisation\'s own documents and data.' },
+      { n: 'AUTO', title: 'Intelligent automation', text: 'Replacing manual, repetitive processes with automated, AI-assisted workflows.' },
+    ],
     evidence: [],
   },
   {

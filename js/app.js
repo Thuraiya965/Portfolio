@@ -238,12 +238,50 @@ function openCase(id) {
   caseDlg.showModal();
   caseDlg.scrollTop = 0;
 }
+// a role opens in the same dialog as a project, so it looks and behaves the same
+function openRole(id) {
+  const e = EXPERIENCE.find((x) => x.id === id);
+  if (!e) return;
+  caseInner.style.setProperty('--pc', 'var(--violet)');
+  caseInner.innerHTML = `
+    <button class="case-close" type="button" data-close>close ✕</button>
+    <header class="case-hero role-hero">
+      <p class="case-cat">${e.ref === 'current' ? '<span class="eyebrow-now"><i></i>now</span>Current role' : 'Role'}</p>
+      <h2 id="case-title">${esc(e.role)}</h2>
+      <p class="case-hook">${esc(e.org)}</p>
+      <dl class="case-meta">
+        <div><dt>when</dt><dd>${esc(e.when)}</dd></div>
+        <div><dt>where</dt><dd>${esc(e.loc)}</dd></div>
+      </dl>
+    </header>
+    <div class="case-body">
+      <section><h3>Overview</h3><p>${esc(e.text)}</p></section>
+      ${e.focus?.length ? `<section><h3>What I work on</h3><div class="role-focus">${e.focus.map((f) => `
+        <article><b class="mono">${esc(f.n)}</b><h4>${esc(f.title)}</h4><p>${esc(f.text)}</p></article>`).join('')}</div></section>` : ''}
+      <section><h3>Tools &amp; technologies</h3>${toolChips(e.tools)}</section>
+      <div class="role-actions">
+        <button class="btn btn-solid" type="button" data-goto="role-${e.id}">See my full experience <span aria-hidden="true">→</span></button>
+        <button class="btn btn-ghost" type="button" data-goto="contact">Get in touch</button>
+      </div>
+    </div>`;
+  caseDlg.showModal();
+  caseDlg.scrollTop = 0;
+}
 caseDlg.addEventListener('click', (e) => {
+  const go = e.target.closest('[data-goto]');
+  if (go) {
+    caseDlg.close();
+    const el = document.getElementById(go.dataset.goto);
+    if (el) el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: go.dataset.goto === 'contact' ? 'start' : 'center' });
+    return;
+  }
   if (e.target === caseDlg || e.target.closest('[data-close]')) caseDlg.close();
 });
 document.addEventListener('click', (e) => {
   const b = e.target.closest('[data-case]');
   if (b) openCase(b.dataset.case);
+  const r = e.target.closest('[data-role]');
+  if (r) openRole(r.dataset.role);
 });
 
 /* ---------------- skills + proof ---------------- */
