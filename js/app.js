@@ -246,6 +246,7 @@ function openRole(id) {
   caseInner.innerHTML = `
     <button class="case-close" type="button" data-close>close ✕</button>
     <header class="case-hero role-hero">
+      ${e.photo ? `<button class="ev role-photo" type="button" data-src="${e.photo.src}" data-cap="${esc(e.photo.cap)}"><img src="${e.photo.src}" alt="Thuraiya Al Marhoobi"></button>` : ''}
       <p class="case-cat">${e.ref === 'current' ? '<span class="eyebrow-now"><i></i>now</span>Current role' : 'Role'}</p>
       <h2 id="case-title">${esc(e.role)}</h2>
       <p class="case-hook">${esc(e.org)}</p>

@@ -263,6 +263,7 @@ export const EXPERIENCE = [
     text: 'Developing and maintaining AI-powered solutions, including LLM-based applications, retrieval-augmented generation (RAG) pipelines and intelligent automation systems.',
     tools: ['Python', 'LLMs', 'RAG', 'Microsoft Azure', 'Docker', 'Linux'],
     // shown in the "current role" panel opened from the hero chip
+    photo: { src: IMG + 'role-photo.jpg', cap: 'Presenting with the Oman Information Technology Society (OITS) at COMEX Global Technology Show' },
     focus: [
       { n: 'LLM', title: 'LLM-based applications', text: 'Building applications on large language models that answer questions, draft content and support day-to-day work.' },
       { n: 'RAG', title: 'Retrieval-augmented generation', text: 'Designing RAG pipelines that ground model answers in the organisation\'s own documents and data.' },
